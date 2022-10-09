@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
+import { WatchDetailsComponent } from './watch-details/watch-details.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    WatchDetailsComponent
   ],
   imports: [
     BrowserModule,

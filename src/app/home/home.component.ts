@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { UserService } from '../_services/user.service';
+import { WatchService } from '../_services/watch.service';
 
 @Component({
   selector: 'app-home',
@@ -7,22 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  content?: string;
+  listWatch:any;
 
-  // constructor(private userService: UserService) { }
+  constructor(private WatchS:WatchService) { }
+
+  getAllWatch(){}
+
+  getListWatchDesc(){
+    this.WatchS.getAllWatch().subscribe((data:any) => {
+      this.listWatch = data.data;
+      this.listWatch = this.listWatch.sort((a: any, b: any) => {
+        return <any>new Date(b.createdAt.date) - <any>new Date(a.createdAt.date);
+      });
+    })
+  }
+
 
   ngOnInit(): void {
-  //   this.userService.getPublicContent().subscribe({
-  //     next: data => {
-  //       this.content = data;
-  //     },
-  //     error: err => {console.log(err)
-  //       if (err.error) {
-  //         this.content = JSON.parse(err.error).message;
-  //       } else {
-  //         this.content = "Error with status: " + err.status;
-  //       }
-  //     }
-  //   });
+    this.getListWatchDesc();
   }
+
 }

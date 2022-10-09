@@ -1,19 +1,20 @@
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="">Montre&Co</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4" routerLinkActive="active" routerLink="home">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
-                </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
+        <div class="container px-4 px-lg-5 d-flex justify-content-between">
+            <div>
+                <a class="navbar-brand" href="/">Montre&Co</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            </div>
+            
+            <div class="" id="navbarSupportedContent">
                 <form class="d-flex gap-2">
+                    <a href="/" class="btn btn-outline-dark">Home</a>
                     <button class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill me-1"></i>
                         Cart
                         <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                     </button>
-                    <a href="/profile" class="btn btn-outline-dark" routerLink="profile">Profil</a>
+                    <a href="/profile" class="btn btn-outline-dark" *ngIf="isLoggedIn" routerLink="profile">Profil</a>
                     <button class="btn btn-outline-dark" *ngIf="isLoggedIn" (click)="logout()">Deconnexion</button>
                     <a href="/login" class="btn btn-outline-dark" routerLink="login" *ngIf="!isLoggedIn">Connexion</a>
                     <a href="/register" class="btn btn-outline-dark" routerLink="register" *ngIf="!isLoggedIn">Inscription</a>
