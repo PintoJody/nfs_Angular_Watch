@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { StorageService } from './_services/storage.service';
 import { AuthService } from './_services/auth.service';
+import { CartService } from './_services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,12 @@ export class AppComponent {
   private roles: string[] = [];
   isLoggedIn = false;
   email?: string;
+  totalProduct:any;
 
-  constructor(private storageService: StorageService, private authService: AuthService) { }
+  constructor(private storageService: StorageService, private authService: AuthService, private cartS:CartService) { }
 
   ngOnInit(): void {
+    this.totalProduct = this.cartS.getTotalProduct();
     this.isLoggedIn = this.storageService.isLoggedIn();
 
     if (this.isLoggedIn) {

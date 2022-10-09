@@ -16,6 +16,8 @@
                     <li class="list-group-item">Bluetooth : {{ watch.bluetooth == true ? 'Oui' : 'Non' }}</li>
                     <li class="list-group-item">Poids : {{watch.weight}}g</li>
                 </ul>
+                <button *ngIf="isLoggedIn" (click)="addCart(watch)" type="button" class="btn btn-primary btn-lg my-4">Ajouter au panier ({{watch.price | currency:'EUR'}})</button>
+                <div *ngIf="!isLoggedIn" class="alert alert-warning my-4 text-center" role="alert">Vous devez être connecté pour ajouter un article au panier</div>
                 <p class="card-text h3">{{watch.shortDescription}}</p>
                 <p class="card-text">{{watch.description}}</p>
                 <p class="card-text"><small class="text-muted">Article ajouté le {{watch.createdAt.date|date:'shortDate'}}</small></p>

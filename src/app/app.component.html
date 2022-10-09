@@ -8,13 +8,13 @@
             
             <div class="" id="navbarSupportedContent">
                 <form class="d-flex gap-2">
-                    <a href="/" class="btn btn-outline-dark">Home</a>
-                    <button class="btn btn-outline-dark" type="submit">
+                    <a href="/" class="btn btn-outline-dark">Acceuil</a>
+                    <button [routerLink]="['/cart-detail']" class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill me-1"></i>
-                        Cart
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        Panier
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">{{totalProduct}}</span>
                     </button>
-                    <a href="/profile" class="btn btn-outline-dark" *ngIf="isLoggedIn" routerLink="profile">Profil</a>
+                    <!-- <a href="/profile" class="btn btn-outline-dark" *ngIf="isLoggedIn" routerLink="profile">Profil</a> -->
                     <button class="btn btn-outline-dark" *ngIf="isLoggedIn" (click)="logout()">Deconnexion</button>
                     <a href="/login" class="btn btn-outline-dark" routerLink="login" *ngIf="!isLoggedIn">Connexion</a>
                     <a href="/register" class="btn btn-outline-dark" routerLink="register" *ngIf="!isLoggedIn">Inscription</a>

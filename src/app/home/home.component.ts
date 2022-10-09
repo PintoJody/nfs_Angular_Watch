@@ -1,3 +1,4 @@
+import { DecodeService } from './../_services/decode.service';
 import { Component, OnInit } from '@angular/core';
 import { WatchService } from '../_services/watch.service';
 
@@ -9,7 +10,7 @@ import { WatchService } from '../_services/watch.service';
 export class HomeComponent implements OnInit {
   listWatch:any;
 
-  constructor(private WatchS:WatchService) { }
+  constructor(private WatchS:WatchService, protected DecodeS:DecodeService) { }
 
   getAllWatch(){}
 
@@ -22,9 +23,14 @@ export class HomeComponent implements OnInit {
     })
   }
 
-
   ngOnInit(): void {
     this.getListWatchDesc();
+
+    //Verif si l'utilisateur est connecté => si oui decode le token
+    if(sessionStorage.getItem('auth-user') != null){
+      const userId = this.DecodeS.decodeJwtId();
+    }
+
   }
 
 }

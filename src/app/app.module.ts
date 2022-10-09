@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
 import { WatchDetailsComponent } from './watch-details/watch-details.component';
+import { CartDetailComponent } from './cart-detail/cart-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { WatchDetailsComponent } from './watch-details/watch-details.component';
     RegisterComponent,
     HomeComponent,
     ProfileComponent,
-    WatchDetailsComponent
+    WatchDetailsComponent,
+    CartDetailComponent
   ],
   imports: [
     BrowserModule,
